@@ -1,6 +1,7 @@
 package qding.com.smartglass;
 
 import com.google.android.glass.timeline.DirectRenderingCallback;
+import com.google.android.glass.timeline.LiveCard;
 
 import android.content.Context;
 import android.graphics.Canvas;

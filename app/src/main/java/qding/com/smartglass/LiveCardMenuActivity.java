@@ -1,5 +1,6 @@
 package qding.com.smartglass;
 
+import com.google.android.glass.timeline.LiveCard;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
