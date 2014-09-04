@@ -39,38 +39,38 @@ import com.google.android.glass.timeline.DirectRenderingCallback;
  * {link android.view.SurfaceHolder.Callback#onSurfaceChanged(android.view.SurfaceHolder, int, int, int)} callback is also
  * required to properly measure and layout the {@link android.view.View}'s dimension.
  */
-public class LocationDrawer implements DirectRenderingCallback {
+public class DistanceDrawer implements DirectRenderingCallback {
 
-    private static final String TAG = "LocationDrawer";
+    private static final String TAG = "DistanceDrawer";
     private static final int COUNT_DOWN_VALUE = 3;
 
-    private final LocationView mLocationView;
+    private final DistanceView mDistanceView;
 
     private SurfaceHolder mHolder;
     private boolean mRenderingPaused;
 
-    private final LocationView.Listener mDistanceListener = new LocationView.Listener() {
+    private final DistanceView.Listener mDistanceListener = new DistanceView.Listener() {
 
         @Override
         public void onChange() {
             if (mHolder != null) {
-                draw(mLocationView);
+                draw(mDistanceView);
             }
         }
     };
 
-    public LocationDrawer(Context context) {
-        this(new LocationView(context));
+    public DistanceDrawer(Context context) {
+        this(new DistanceView(context));
     }
 
-    public LocationDrawer(LocationView locationView) {
-        mLocationView = locationView;
-        mLocationView.setListener(mDistanceListener);
+    public DistanceDrawer(DistanceView distanceView) {
+        mDistanceView = distanceView;
+        mDistanceView.setListener(mDistanceListener);
     }
 
     /**
      * Uses the provided {@code width} and {@code height} to measure and layout the inflated
-     * {@link LocationView}.
+     * {@link DistanceView}.
      */
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -78,9 +78,9 @@ public class LocationDrawer implements DirectRenderingCallback {
         int measuredWidth = View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY);
         int measuredHeight = View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY);
 
-        mLocationView.measure(measuredWidth, measuredHeight);
-        mLocationView.layout(
-                0, 0, mLocationView.getMeasuredWidth(), mLocationView.getMeasuredHeight());
+        mDistanceView.measure(measuredWidth, measuredHeight);
+        mDistanceView.layout(
+                0, 0, mDistanceView.getMeasuredWidth(), mDistanceView.getMeasuredHeight());
     }
 
     /**
@@ -117,9 +117,9 @@ public class LocationDrawer implements DirectRenderingCallback {
      */
     private void updateRenderingState() {
         if (mHolder != null && !mRenderingPaused) {
-            mLocationView.start();
+            mDistanceView.start();
         } else {
-            mLocationView.stop();
+            mDistanceView.stop();
         }
     }
 

@@ -32,7 +32,7 @@ import android.widget.TextView;
  *   2. From 500ms to 1000ms, update the TextView's alpha from {@code ALPHA_DELIMITER} to {@code 1}.
  * At each second change, update the TextView text.
  */
-public class LocationView extends FrameLayout {
+public class DistanceView extends FrameLayout {
 
     /**
      * Interface to listen for changes in the countdown.
@@ -62,11 +62,11 @@ public class LocationView extends FrameLayout {
     private Listener mListener;
     private boolean mRunning;
 
-    public LocationView(Context context) {
+    public DistanceView(Context context) {
         this(context, null, 0);
     }
 
-    public LocationView(Context context, AttributeSet attrs, int style) {
+    public DistanceView(Context context, AttributeSet attrs, int style) {
         super(context, attrs, style);
         LayoutInflater.from(context).inflate(R.layout.location_layout, this);
         mDistanceView = (TextView) findViewById(R.id.distance);

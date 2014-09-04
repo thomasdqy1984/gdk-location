@@ -16,7 +16,7 @@ import android.view.View;
 /**
  * Renders a fading "Hello world!" in a {@link LiveCard}.
  */
-public class LiveCardRenderer implements DirectRenderingCallback {
+public class DistanceCardRenderer implements DirectRenderingCallback {
 
     /** The duration, in millisconds, of one frame. */
     private static final long FRAME_TIME_MILLIS = 40;
@@ -41,7 +41,7 @@ public class LiveCardRenderer implements DirectRenderingCallback {
 
     private RenderThread mRenderThread;
 
-    public LiveCardRenderer(Context context) {
+    public DistanceCardRenderer(Context context) {
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(Color.WHITE);

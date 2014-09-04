@@ -11,9 +11,9 @@ import android.os.IBinder;
 /**
  * A {@link Service} that publishes a {@link LiveCard} in the timeline.
  */
-public class LocationLiveCardService extends Service {
+public class DistanceLiveCardService extends Service {
 
-    private static final String LIVE_CARD_TAG = "LocationLiveCardService";
+    private static final String LIVE_CARD_TAG = "DistanceLiveCardService";
 
     private LiveCard mLiveCard;
 
@@ -27,11 +27,11 @@ public class LocationLiveCardService extends Service {
         if (mLiveCard == null) {
             mLiveCard = new LiveCard(this, LIVE_CARD_TAG);
 
-            LiveCardRenderer renderer = new LiveCardRenderer(this);
+            DistanceCardRenderer renderer = new DistanceCardRenderer(this);
             mLiveCard.setDirectRenderingEnabled(true).getSurfaceHolder().addCallback(renderer);
 
             // Display the options menu when the live card is tapped.
-            Intent menuIntent = new Intent(this, LiveCardMenuActivity.class);
+            Intent menuIntent = new Intent(this, DistanceCardMenuActivity.class);
             mLiveCard.setAction(PendingIntent.getActivity(this, 0, menuIntent, 0));
             mLiveCard.attach(this);
             mLiveCard.publish(PublishMode.REVEAL);

@@ -8,11 +8,11 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".LiveCardMenuActivity"
+            android:name=".DistanceCardMenuActivity"
             android:theme="@style/MenuTheme" />
 
         <service
-            android:name=".LocationLiveCardService"
+            android:name=".DistanceLiveCardService"
             android:icon="@drawable/ic_glass_logo"
             android:label="@string/title_activity_location_live_card_service" >
             <intent-filter>
